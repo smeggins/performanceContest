@@ -17,15 +17,16 @@
       var endpoint = 'https://api.nasa.gov/neo/rest/v1/feed?start_date=' + today + '&end_date=' + weekFromNow + '&api_key=' + apiKey;
 
       var $loader = $('.ajax-loader');
-		var $neos = $('.neos-list');
 
       $.ajax({
          url: endpoint,
          method: 'get',
       }).done(function(data) {
          neosData = data.near_earth_objects;
+         console.log(neosData)
 
-         Object.keys(neosData).sort().forEach(function(value, key) {
+         Object.keys(neosData).sort().forEach(function(value) {
+            console.log(value)
             var dayData = neosData[value];
             var day = moment(value).format('dddd, MMMM DD, YYYY');
             var nameHeader = 'Name';

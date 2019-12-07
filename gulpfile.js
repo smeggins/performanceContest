@@ -36,6 +36,14 @@ gulp.task('scripts', function(){
       .pipe(gulp.dest('./build/js'))
 });
 
+gulp.task('scripts2', function(){
+   return gulp
+     .src('./js/vendor/*.js')
+     .pipe(terser())
+     .pipe(rename({extname: '.min.js'}))
+     .pipe(gulp.dest('./build/js'))
+});
+
 gulp.task('browser-sync', function() {
    browserSync.init({
       server: {
@@ -49,6 +57,7 @@ gulp.task('browser-sync', function() {
 gulp.task('watch', function() {
    gulp.watch('sass/*.scss', gulp.series('sass'));
    gulp.watch('js/*.js', gulp.series('scripts'));
+   gulp.watch('js/vendor/*.js', gulp.series('scripts2'));
 });
 
 gulp.task('default', gulp.parallel('watch', 'browser-sync'));
