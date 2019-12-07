@@ -4,14 +4,14 @@ var gulp = require('gulp'),
     sass = require('gulp-sass'),
     autoprefixer = require('gulp-autoprefixer'),
     browserSync = require('browser-sync');
-
+​
 var plumberErrorHandler = {
    errorHandler: notify.onError({
       title: 'Gulp',
       message: 'Error: <%= error.message %>'
    })
 };
-
+​
 gulp.task('sass', function() {
    gulp.src('./sass/*.scss')
       .pipe(plumber(plumberErrorHandler))
@@ -21,25 +21,25 @@ gulp.task('sass', function() {
       }))
       .pipe(gulp.dest('./build/css'))
 });
-
+​
 gulp.task('scripts', function(){
     gulp.src('./js/*.js')
       .pipe(gulp.dest('./build/js'))
 });
-
+​
 gulp.task('browser-sync', function() {
    browserSync.init({
       server: {
          baseDir: "./"
       }
    });
-
+​
    gulp.watch(['build/css/*.css', 'build/js/*.js']).on('change', browserSync.reload);
 });
-
+​
 gulp.task('watch', function() {
-   gulp.watch('sass/*.scss', ['sass']);
-   gulp.watch('js/*.js', ['scripts']);
+   gulp.watch('sass/*.scss', gulp.series('sass'));
+   gulp.watch('js/*.js', gulp.series('scripts'));
 });
-
-gulp.task('default', ['watch', 'browser-sync']);
+​
+gulp.task('default', gulp.parallel('watch', 'browser-sync'));
