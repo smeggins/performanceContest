@@ -1,5 +1,4 @@
 (function ($) {
-   $.getscript('./moment.min.js', function() {
       "use strict";
 
       /**
@@ -7,6 +6,20 @@
        */
    
       $(function() {
+
+         if ($('#one').attr('src') !== 'images/asteroid.svg') {
+            $(window).scroll(function() {
+               $('#one').attr('src', 'images/asteroid.svg')
+               $('#two').attr('src', 'images/helmet.svg')
+               $('#three').attr('src', 'images/satellite.svg')
+               $('#facebook').attr('src', 'images/facebook.svg')
+               $('#twitter').attr('src', 'images/twitter.svg')
+               $('#instagram').attr('src', 'images/instagram.svg')
+               $('#flickr').attr('src', 'images/flickr.svg')
+               $('#github').attr('src', 'images/github.svg')
+
+            })
+         }
    
          // set some initial variables
          var neosData;
@@ -81,6 +94,6 @@
          return Math.round(x).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
       }
    
-   })
+   
 	
 }(jQuery));
