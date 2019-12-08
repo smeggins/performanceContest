@@ -1,9 +1,5 @@
 (function ($) {
       "use strict";
-
-      /**
-       * Ajax request to NASA Neo API
-       */
    
       $(function() {
 
@@ -24,7 +20,6 @@
             })
          }
    
-         // set some initial variables
          var neosData;
          var neosTables = '';
    
@@ -40,10 +35,8 @@
             method: 'get',
          }).done(function(data) {
             neosData = data.near_earth_objects;
-            console.log(neosData)
    
             Object.keys(neosData).sort().forEach(function(value) {
-               console.log(value)
                var dayData = neosData[value];
                var day = moment(value).format('dddd, MMMM DD, YYYY');
                var nameHeader = 'Name';
@@ -92,7 +85,6 @@
    
       });
    
-      // Helper function for formatting large number data
       function numberFormatting(x) {
          return Math.round(x).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
       }
