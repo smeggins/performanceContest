@@ -5,7 +5,7 @@
       <title>Eyes to the Sky</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,400italic,700,700italic|Source+Sans+Pro:300,300italic,700,700italic,900,900italic&subset=latin,latin-ext" />
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,|Source+Sans+Pro:300,700,700italic,900" />
       <link rel="stylesheet" href="./build/css/style.min.css" />
    </head>
    <body>
@@ -43,7 +43,7 @@
                   <div class="action">
                      <img id="three" src="" alt="Satellite icon" class="cta-icon" />
                      <h2>Asteroid Tweets</h2>
-                     <a class="twitter-timeline" href="https://twitter.com/AsteroidWatch" data-tweet-limit="1" data-chrome="noheader nofooter">Tweets by AsteroidWatch</a> <script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+                     <a id="tweet" class="twitter-timeline" href="https://twitter.com/AsteroidWatch" data-tweet-limit="1" data-chrome="noheader nofooter">Tweets by AsteroidWatch</a> <script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
                   </div>
                </div>
             </div>
@@ -52,7 +52,7 @@
          <footer class="site-footer">
             <div class="site-info container">
                <div class="copyright">
-                  <img src="images/red_logo_knockout.svg" alt="RED Academy logo" class="footer-logo" />
+                  <img id='redLogo' src="" alt="RED Academy logo" class="footer-logo" />
                   <p>Copyright &copy; RED Academy 2016.</p>
                   <p>Eyes to the Sky makes use of the <a href="https://api.nasa.gov/api.html#neows-feed">Neo Feed API</a> maintained by NASA.</p>
                </div>

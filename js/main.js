@@ -17,6 +17,9 @@
                $('#instagram').attr('src', 'images/instagram.svg')
                $('#flickr').attr('src', 'images/flickr.svg')
                $('#github').attr('src', 'images/github.svg')
+               $('#redLogo').attr('src', 'images/red_logo_knockout.svg')
+               $('#tweet').attr('href', 'https://twitter.com/AsteroidWatch')
+
 
             })
          }
